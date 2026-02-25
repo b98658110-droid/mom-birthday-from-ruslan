@@ -1,0 +1,328 @@
+ /* Подключаем красивые шрифты */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #1a1f2e; /* Тёмный фон для контраста с лотосами */
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Фон с лотосами - это то, что ты просил */
+        .lotus-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15; /* Прозрачность, чтобы текст был читаемым */
+            pointer-events: none;
+        }
+        
+        .lotus-background::before {
+            content: "🌸";
+            position: absolute;
+            font-size: 300px;
+            top: 5%;
+            left: -50px;
+            transform: rotate(-15deg);
+            opacity: 0.3;
+            color: #ff9a9e;
+        }
+        
+        .lotus-background::after {
+            content: "🌸";
+            position: absolute;
+            font-size: 400px;
+            bottom: 0;
+            right: -50px;
+            transform: rotate(25deg);
+            opacity: 0.3;
+            color: #fad0c4;
+        }
+        
+        /* Дополнительные лотосы */
+        .lotus-1 {
+            position: absolute;
+            top: 30%;
+            right: 10%;
+            font-size: 200px;
+            opacity: 0.2;
+            transform: rotate(45deg);
+            color: #a8edea;
+        }
+        
+        .lotus-2 {
+            position: absolute;
+            bottom: 20%;
+            left: 5%;
+            font-size: 250px;
+            opacity: 0.2;
+            transform: rotate(-20deg);
+            color: #fed6e3;
+        }
+        
+        /* Основной контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Каждая секция - отдельный блок на длинной странице */
+        .section {
+            min-height: 100vh; /* Каждая секция на весь экран */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            background: rgba(26, 31, 46, 0.7);
+            border-radius: 30px;
+            margin-bottom: 30px;
+        }
+        
+        /* Секция 1 - Заголовок */
+        .hero {
+            text-align: center;
+        }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #f3ec78, #af4261);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1.5s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.8em;
+            color: #e0e0e0;
+            font-weight: 300;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.5s ease 0.3s both;
+        }
+        
+        /* Секция 2 - Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Секция 3 - ВИДЕО (то, что ты просил по середине) */
+        .video-section {
+            text-align: center;
+            min-height: 80vh;
+        }
+        
+        .video-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            color: #fad0c4;
+        }
+        
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+        
+        .video-container iframe,
+        .video-container video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: block;
+        }
+        
+        /* Секция 4 - Поздравление (длинный текст) */
+        .message-section {
+            text-align: center;
+        }
+        
+        .congrats-message {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3em;
+            line-height: 2;
+            white-space: pre-line;
+            background: rgba(255,255,255,0.1);
+            padding: 50px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .congrats-message p {
+            margin-bottom: 25px;
+        }
+        
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2em;
+            margin-top: 40px;
+            color: #fad0c4;
+        }
+        
+        /* Секция 5 - Пожелания */
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+            width: 100%;
+        }
+        
+        .wish-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .wish-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .wish-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .wish-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #fad0c4;
+        }
+        
+        /* Кнопка с конфетти */
+        .confetti-btn {
+            background: linear-gradient(45deg, #f3ec78, #af4261);
+            border: none;
+            color: #1a1f2e;
+            font-size: 1.5em;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 40px 0;
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .confetti-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Анимации */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes floatLotus {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        /* Цветы лотоса анимированные */
+        .floating-lotus {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.1;
+            animation: floatLotus 8s infinite ease-in-out;
+        }
+        
+        .lotus-left {
+            left: 5%;
+            top: 20%;
+            animation-delay: 0s;
+        }
+        
+        .lotus-right {
+            right: 5%;
+            bottom: 30%;
+            animation-delay: 2s;
+        }
+        
+        .lotus-center {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            opacity: 0.05;
+            animation-delay: 4s;
+        }
+        
+        /* Адаптация для телефонов */
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            .subtitle { font-size: 1.3em; }
+            .wishes-grid { grid-template-columns: 1fr; }
+            .congrats-message { padding: 30px; font-size: 1.1em; }
+            .video-section h2 { font-size: 2.5em; }
+        }
+
+
+         /* title="Поздравление для мамы" */
